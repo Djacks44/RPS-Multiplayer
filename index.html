@@ -1,56 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Java RPS</title>
+	<title>Rock-Paper-Scissors (Multiplayer)</title>
+    <header><center><h1>Rock-Paper-Scissors</h1></center></header>
 </head>
 <body>
+<div id="user">
+    <h3><center>Hi <span id="username"></span>! You are <span id="player#"></span>.</center></h3>
+    <h3><center>It's <span id="player#"></span> Turn!</center></h3>
+</div>
+<div id="userturn"></div>
+<div id="player2"></div>
+<div id="whowins"></div>
+<div id="player1"></div>
+<style>
+    #user{
+height: 50px;
+width: 100%;
+    }#userturn{
+height: 50px;
+width: 100%;
+        }#player2{
+        border:solid;
+        width: 30%;
+        height:270px;
+     float: right;
+     border-color: blue;
+     margin: 10px
+    }#whowins{
+        border: solid;
+        width: 30%;
+        height:270px;
+        float: right;
+        margin: 10px;
+         margin-right: 35px;
+
+    }#player1{
+        border: solid;
+        width: 30%;
+        height:270px;
+        float: left;
+        border-color: red;
+        margin: 10px;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <div id="game">
 
-</div>
+</div> -->
 <script type="text/javascript">
 
-var computerChoices = ['r', 'p', 's'];
-var wins = 0;
-var losses = 0;
-var ties = 0;
+// var computerChoices = ['r', 'p', 's'];
+// var wins = 0;
+// var losses = 0;
+// var ties = 0;
 
-document.onkeyup = function(event) {
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+// document.onkeyup = function(event) {
+//     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+//     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    if ((userGuess == 'r') || (userGuess == 'p') || (userGuess == 's')){
+//     if ((userGuess == 'r') || (userGuess == 'p') || (userGuess == 's')){
 
-        if ((userGuess == 'r') && (computerGuess == 's')){
-            wins++;
-        }else if ((userGuess == 'r') && (computerGuess == 'p')){
-            losses++;
-        }else if ((userGuess == 's') && (computerGuess == 'r')){
-            losses++;
-        }else if ((userGuess == 's') && (computerGuess == 'p')){
-            wins++;
-        }else if ((userGuess == 'p') && (computerGuess == 'r')){
-            wins++;
-        }else if ((userGuess == 'p') && (computerGuess == 's')){
-            losses++;
-        }else if (userGuess == computerGuess){
-            ties++;
-        }  
+//         if ((userGuess == 'r') && (computerGuess == 's')){
+//             wins++;
+//         }else if ((userGuess == 'r') && (computerGuess == 'p')){
+//             losses++;
+//         }else if ((userGuess == 's') && (computerGuess == 'r')){
+//             losses++;
+//         }else if ((userGuess == 's') && (computerGuess == 'p')){
+//             wins++;
+//         }else if ((userGuess == 'p') && (computerGuess == 'r')){
+//             wins++;
+//         }else if ((userGuess == 'p') && (computerGuess == 's')){
+//             losses++;
+//         }else if (userGuess == computerGuess){
+//             ties++;
+//         }  
 
-        var html = "<p>Press r, p or s to start playing</p>" +
-        "<p>wis: " + 
-        wins + 
-        "</p>" +
-        "<p>losses: " + 
-        losses + 
-        "</p>" +
-        "<p>ties: " + 
-        ties + 
-        "</p>" + "<p>" + "Computer guessed: " + computerGuess + "</p>";
-        document.querySelector('#game').innerHTML = html;
+//         var html = "<p>Press r, p or s to start playing</p>" +
+//         "<p>wis: " + 
+//         wins + 
+//         "</p>" +
+//         "<p>losses: " + 
+//         losses + 
+//         "</p>" +
+//         "<p>ties: " + 
+//         ties + 
+//         "</p>" + "<p>" + "Computer guessed: " + computerGuess + "</p>";
+//         document.querySelector('#game').innerHTML = html;
 
-        document.querySelector('#game').innerHTML = html;
-    }
-}
+//         document.querySelector('#game').innerHTML = html;
+//     }
+// }
 
 
 </script>
