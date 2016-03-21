@@ -6,20 +6,42 @@
 </head>
 <body>
 <div id="user">
-    <h3><center>Hi <span id="username"></span>! You are <span id="player#"></span>.</center></h3>
-    <h3><center>It's <span id="player#"></span> Turn!</center></h3>
+    <h3><center>
+        
+     <form id="nameform">  
+        
+        <label for="name-input">
+        <input type="text" id="name-input">
+        <input id="addName" type="submit" value="Start">
+     </form>
+    </center></h3>
 </div>
-<div id="userturn"></div>
-<div id="player2"></div>
+<div id="userturn">
+     <h3><center><span id="player#"></span></center></h3>
+</div>
+<div id="player2"> <h2><center>
+<span id="name2">Waiting for Player 2</span>
+<span id="r"></span>
+<span id="p"></span>
+<span id="s"></span>
+<span id="wins2"></span>
+</center></h2></div>
 <div id="whowins"></div>
-<div id="player1"></div>
+<div id="player1"> <h2><center>
+<span id="name1">Waiting for Player 1</span>
+<span id="r1" class="r"></span>
+<span id="p1" class='p'></span>
+<span id="s1" class='s'></span>
+<span id="wins1"></span>
+</center></h2></div>
 <style>
     #user{
-height: 50px;
+height: 25px;
 width: 100%;
     }#userturn{
-height: 50px;
+height: 25px;
 width: 100%;
+margin-bottom: 20px;
         }#player2{
         border:solid;
         width: 30%;
@@ -58,12 +80,80 @@ width: 100%;
 
 
 
-
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <!-- 
 <div id="game">
 
 </div> -->
 <script type="text/javascript">
+var wins1 = 0
+var wins2 = 0
+var losses1 = 0
+var losses2 = 0
+var player1Guess = [];
+var player2Guess = [];
+$("#addName").on("click", function(){
+var name = $("#name-input").val()
+$("#name2").text(name);
+$("#r").html("<br><br>Rock");
+$("#p").html("<br>Paper");
+$("#s").html("<br>Scissors<br>");
+$("#wins2").html("<br><br>Wins: "+wins+" losses: "+losses);
+
+$("#name1").text(name);
+$("#r1").html("<br><br>Rock");
+$("#p1").html("<br>Paper");
+$("#s1").html("<br>Scissors<br>");
+$("#wins1").html("<br><br>Wins: "+wins+" losses: "+losses);
+
+$("#r,#p,#s").on("click", function(){
+    console.log(this.id)
+    player2Guess.push(this.id)
+    if (this.id == "r") {
+        $("#player2").html("Rock"); 
+    }else if (this.id == "p") {
+        $("#player2").html("Paper"); 
+    }else{
+        $("#player2").html("Scissors"); 
+    }
+ if (player1Guess[0] == player2Guess[0]) {
+        $("#whowins").html("The Rresult is a Draw"); 
+    };
+
+   
+});
+
+$("#r1,#p1,#s1").on("click", function(){
+    console.log(this.className)
+    player1Guess.push(this.className)
+    if (this.className == "r") {
+        $("#player1").html("Rock"); 
+    }else if (this.className == "p") {
+        $("#player1").html("Paper"); 
+    }else{
+        $("#player1").html("Scissors"); 
+    }
+
+ if (player1Guess[0] == player2Guess[0]) {
+ $("#whowins").html("The Rresult is a Draw"); 
+    } else if (player1Guess[0] == "r" && player2Guess[0] == "p") {
+
+    };
+   
+});
+
+
+
+
+
+
+
+
+
+
+return false;
+
+});
 
 // var computerChoices = ['r', 'p', 's'];
 // var wins = 0;
